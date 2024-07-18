@@ -14,9 +14,13 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<CountryList/>} />
+        <Route path='/' element={<CountryList />} />
         {/* <Route path='/country-flag' element={<Modal/>} /> */}
       </Routes>
+
+
+
+      
 
     </>
   )
