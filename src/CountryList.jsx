@@ -55,7 +55,7 @@ function CountryList() {
         }
       })
     );
-  });
+  },[filterdCountry]);
   return (
     <>
       <div className="w-screen h-screen ">
@@ -79,29 +79,27 @@ function CountryList() {
           })}
         </div>
         {modal && (
-          <div className="w-screen h-screen flex justify-center items-center 	position: fixed top-0 left-0 z-20 bg-blue-100 opacity-100">
-            <div className=" lg:h-1/2  w-1/2 bg-slate-950 ">
-              <img
-                src={closebtn}
-                alt=""
-                onClick={closeClick}
-                className="bg-white sm:w-16 h-16"
-              />
-
-              <div className=" lg:w-full lg:h-full bg-slate-800 overflow-scroll">
-                {filterdCountry.map((element, index) => {
-                  return (
-                    <img
-                      key={index}
-                      src={element.flag}
-                      className="w-full h-full"
-                      alt=""
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          </div>
+         <div className="fixed inset-0 z-20 flex justify-center items-center bg-blue-100 bg-opacity-80">
+         <div className="w-11/12 max-w-lg lg:max-w-2xl bg-slate-950 rounded-lg shadow-lg relative p-4">
+           <img
+             src={closebtn}
+             alt="Close"
+             onClick={closeClick}
+             className="w-10 h-10 absolute top-4 right-4 cursor-pointer bg-white p-1 rounded-full shadow-md"
+           />
+           <div className="w-full max-h-[80vh] lg:max-h-[60vh] bg-slate-800 overflow-y-auto rounded-md p-2 flex flex-col items-center">
+             {filterdCountry.map((element, index) => (
+               <img
+                 key={index}
+                 src={element.flag}
+                 className="w-full h-auto max-h-60 sm:max-h-80 object-contain rounded-md"
+                 alt=""
+               />
+             ))}
+           </div>
+         </div>
+       </div>
+       
         )}
       </div>
     </>
